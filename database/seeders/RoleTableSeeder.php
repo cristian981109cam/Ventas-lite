@@ -15,7 +15,7 @@ class RoleTableSeeder extends Seeder
     {
         $data = [
             [
-                'nmae' => 'Super Administrador',
+                'name' => 'Super Administrador',
                 'Descripcion' => 'Este es un rol para el superadminitrador, que tendra acceso a todos los permisos',
             ],
             [
