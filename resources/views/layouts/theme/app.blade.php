@@ -23,7 +23,9 @@
     <!--  END LOADER -->
 
     <!--  BEGIN NAVBAR  -->
+    @if(Auth::user())
     @include('layouts.theme.header')
+    @endif
     <!--  END NAVBAR  -->
 
     <!--  BEGIN MAIN CONTAINER  -->
@@ -33,7 +35,9 @@
         <div class="search-overlay"></div>
 
         <!--  BEGIN SIDEBAR  -->
-        @include('layouts.theme.sidebar')
+        @if(Auth::user())
+         @include('layouts.theme.sidebar')
+        @endif
         <!--  END SIDEBAR  -->
 
         <!--  BEGIN CONTENT AREA  -->
