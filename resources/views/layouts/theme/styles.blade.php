@@ -10,15 +10,16 @@
 <!-- <link href="plugins/apex/apexcharts.css') }}" rel="stylesheet" type="text/css"> No vamos a utilizar los graficos del template-->
 <!-- <link href="{{ asset('assets/css/dashboard/dash_1.css') }}" rel="stylesheet" type="text/css" class="dashboard-analytics" /> No vamos a utilizar los graficos del template-->
 
-<link href="{{ asset('plugins/font-icons/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css" />
-<link href="{{ asset('css/fontawesome.css') }}" rel="stylesheet" type="text/css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+<!--link href="{{ asset('plugins/font-icons/fontawesome/css/fontawesome.css') }}" rel="stylesheet" type="text/css" /-->
+<!--link href="{{ asset('assets/css/fontawesome.css') }}" rel="stylesheet" type="text/css" /-->
 
 <link href="{{ asset('assets/css/elements/avatar.css') }}" rel="stylesheet" type="text/css" />
 
 <link href="{{ asset('plugins/sweetalerts/sweetalert.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css') }}" rel="stylesheet" type="text/css" />
 
-<link href="{{ asset('css/custom.css') }}" rel="stylesheet" type="text/css" />
+<!--link href="{{ asset('assets/css/custom.css') }}" rel="stylesheet" type="text/css" /-->
 
 <link href="{{ asset('assets/css/widgets/modules-widgets.css') }}" rel="stylesheet" type="text/css" />
 <link href="{{ asset('assets/css/forms/theme-checkbox-radio.css') }}" rel="stylesheet" type="text/css" />
