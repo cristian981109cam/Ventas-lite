@@ -61,7 +61,7 @@ class PermissionsTableSeeder extends Seeder
             ],
         ];
         foreach ($data as $val) {
-            Role::create($val);
+            Permissions::create($val);
         }
     }
 }
