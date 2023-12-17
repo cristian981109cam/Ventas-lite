@@ -3,6 +3,8 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\dashboard\DashboardController;
+use App\Http\Livewire\CategoriesController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -19,8 +21,6 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/dashboard', [DashboardController::class, 'index'])->name('dash');
-Route::get('/home', [HomeController::class, 'index'])->name('home');
-
-
-
+Route::get('/dashboard', [App\Http\Controllers\dashboard\DashboardController::class, 'index'])->name('dash');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('categories', CategoriesController::class);

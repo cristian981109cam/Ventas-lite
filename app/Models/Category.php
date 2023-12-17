@@ -9,5 +9,18 @@ class Category extends Model
 {
     use HasFactory;
 
-    protected $fillabel = ['name','image'];
+    protected $fillable = ['name', 'image'];
+
+    public function products()
+    {
+        return $this->hasMany(Product::class);
+    }
+
+    public function getImagenAttribute()
+    {
+        if (file_exists('storage/categories/' . $this->image))
+            return $this->image;
+        else
+            return 'no-image.png';
+    }
 }

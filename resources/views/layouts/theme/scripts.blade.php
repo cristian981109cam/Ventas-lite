@@ -23,6 +23,8 @@
 <script src="{{ asset('plugins/nicescroll/jquery.nicescroll.min.js') }}"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/brands.js" integrity="sha384-sCI3dTBIJuqT6AwL++zH7qL8ZdKaHpxU43dDt9SyOzimtQ9eyRhkG3B7KMl6AO19" crossorigin="anonymous"></script>
 <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/fontawesome.js" integrity="sha384-7ox8Q2yzO/uWircfojVuCQOZl+ZZBg2D2J5nkpLqzH1HY0C1dHlTKIbpRz/LG23c" crossorigin="anonymous"></script>
+<script src="{{ asset('plugins/nicescroll/nicescroll.js') }}"></script>
+<script src="{{ asset('plugins/currency/currency.js') }}"></script>
 
 <script>
     function noty(msg, option = 1)
