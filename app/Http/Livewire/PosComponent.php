@@ -5,16 +5,17 @@ namespace App\Http\Livewire;
 use App\Models\Denomination;
 use App\Models\Product;
 use App\Models\Sale;
-use App\Models\SaleDetail;
+use App\Models\SaleDetails;
 use Darryldecode\Cart\Facades\CartFacade as Cart;
-use DB;
+
 use Exception;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Redirect;
 use Livewire\Component;
 
 class PosComponent extends Component
 {
-    public $total, $itemsQuantity, $denominations=[], $efectivo, $change;
+    public $total, $itemsQuantity=1, $cart=[],$denominations=[], $efectivo, $change;
 
     public function mount()
     {
@@ -31,7 +32,7 @@ class PosComponent extends Component
         return view('livewire.pos.component', [
                 'denominations' => Denomination::orderBy('value', 'desc')->get(),
                 'cart' => Cart::getContent()->sortBy('name')
-            ])
+        ])
             ->extends('layouts.theme.app')
             ->section('content');
     }
@@ -155,7 +156,7 @@ class PosComponent extends Component
         Cart::remove($productId);
         $newQty = ($item->quantity) - 1;
         if ($newQty > 0)
-            Cart::add($item->id, $item->name, $item->price, $newQty);
+            Cart::add($item->id, $item->name, $item->price, $newQty, $item->attributes[0]);
         $this->total = Cart::getTotal();
         $this->itemsQuantity = Cart::getTotalQuantity();
         $this->emit('scan-ok', 'Cantidad actualizada');
@@ -187,7 +188,9 @@ class PosComponent extends Component
             $this->emit('sale-error', 'EL EFECTIVO DEBE SER MAYOR O IGUAL AL TOTAL');
             return;
         }
+
         DB::beginTransaction();
+
         try {
             $sale = Sale::create([
                 'total' => $this->total,
@@ -200,7 +203,7 @@ class PosComponent extends Component
             {
                 $items = Cart::getContent();
                 foreach ($items as $item) {
-                    SaleDetail::create([
+                    SaleDetails::create([
                         'price'          => $item->price,
                         'quantity'       => $item->quantity,
                         'product_id'  => $item->id,
@@ -213,6 +216,7 @@ class PosComponent extends Component
                     $product->save();
                 }
             }
+            
             DB::commit();
 
             Cart::clear();

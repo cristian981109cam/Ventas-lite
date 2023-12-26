@@ -97,18 +97,20 @@ class ProductsComponent extends Component
         $this->resetUI();
         $this->emit('product-added', 'Producto Registrado');
     }
-
+    
     public function Edit(Product $product)
     {
         $this->selected_id = $product->id;
         $this->name = $product->name;
         $this->barcode = $product->barcode;
         $this->cost = $product->cost;
+        $this->price = $product->price;
+        $this->stock = $product->stock;
         $this->alerts = $product->alerts;
         $this->category_id = $product->category_id;
         $this->image = null;
 
-        $this->emit('show-modal', 'Show modal');
+        $this->emit('modal-show', 'show modal');
     }
 
     public function Update()

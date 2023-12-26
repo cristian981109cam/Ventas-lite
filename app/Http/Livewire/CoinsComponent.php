@@ -30,12 +30,18 @@ class CoinsComponent extends Component
     public function render()
     {
         if (strlen($this->search) > 0)
-            $data = Denomination::where('type', 'like', '%' . $this->search . '%')->paginate($this->pagination);
+            $data = Denomination::where('type', 'like', '%' . $this->search . '%')
+                    ->orwhere('value', 'like', '%' . $this->search . '%')
+                    ->paginate($this->pagination)
+            ; 
         else
-            $data = Denomination::orderBy('id', 'desc')->paginate($this->pagination);
+            
+            $data = Denomination::orderBy('id', 'asc')
+                    ->paginate($this->pagination)
+            ;
 
         return view('livewire.denominations.component', [
-            'data' => $data
+            'data' => $data,
         ])
         ->extends('layouts.theme.app')
         ->section('content');

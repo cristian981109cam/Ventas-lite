@@ -9,5 +9,5 @@ class Company extends Model
 {
     use HasFactory;
 
-    protected $fillabel = ['name', 'address', 'phone', 'taxpayer_1'];
+    protected $fillable = ['name', 'address', 'phone', 'taxpayer_1'];
 }
