@@ -20,7 +20,7 @@
                     <table class="table table-bordered table striped mt-1">
                         <thead class="text-white" style="background: #3b3f5c">
                         <tr>
-                            <th class="table-th text-white">TYPO</th>
+                            <th class="table-th text-white">TIPO</th>
                             <th class="table-th text-white text-center">VALOR</th>
                             <th class="table-th text-white text-center">IMAGEN</th>
                             <th class="table-th text-white text-center">ACTIONS</th>
@@ -79,12 +79,15 @@
         window.livewire.on('hide-modal', msg =>{
             $('#theModal').modal('hide');
         });
+        window.livewire.on('hidden.bs.modal', msg =>{
+            $('.er').css('display', 'none')
+        });
         $('#theModal').on('hidden.bs.modal', function(e) {
             $('.er').css('display', 'none')
         });
     });
-    function Confirm(id, products)
-    {
+    function Confirm(id, products){
+        
         if (products > 0)
         {
             swal('No se puede eliminar la categoria porque tiene productos relacionados.')

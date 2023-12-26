@@ -2,7 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Livewire\CategoriesController;
+use App\Http\Livewire\ProductsComponent;
+use App\Http\Livewire\CoinsComponent;
+use App\Http\Livewire\PosComponent;
+use App\Http\Livewire\RolesComponent;
+use App\Http\Livewire\PermisosComponent;
+use App\Http\Livewire\AsignarComponent;
 
+use App\Http\Livewire\Select2;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +29,12 @@ Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\dashboard\DashboardController::class, 'index'])->name('dash');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('categories', CategoriesController::class);
+Route::get('products', ProductsComponent::class);
+Route::get('coins', CoinsComponent::class);
+Route::get('pos', PosComponent::class);
+Route::get('roles', RolesComponent::class);
+Route::get('permisos', PermisosComponent::class);
+Route::get('asignar', AsignarComponent::class);
+
+//rutas utils
+Route::get('select2', Select2::class);

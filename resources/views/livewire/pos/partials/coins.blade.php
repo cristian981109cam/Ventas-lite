@@ -2,18 +2,18 @@
     <div class="col-sm-12">
 
         <div class="connect-sorting">
-            <h5 class="text-center mb-3">DENOMINACIONES</h5>
-          <div class="container">
-              <div class="row">
-                  @foreach($denominations as $d)
-                  <div class="col-sm mt-2">
-                    <button wire:click.prevent="ACash({{$d->value}})" class="btn btn-dark btn-block den">
-                        {{ $d->value > 0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
-                    </button>
-                  </div>
-                  @endforeach
-              </div>
-          </div>
+            <h5 class="text-center mb-2">DENOMINACIONES</h5>
+            <div class="container">
+                <div class="row">
+                    @foreach($denominations as $d)
+                    <div class="col-6 mt-2">
+                        <button wire:click.prevent="ACash({{$d->value}})" class="btn btn-dark btn-block den">
+                            {{ $d->value > 0 ? '$' . number_format($d->value,2, '.', '') : 'Exacto' }}
+                        </button>
+                    </div>
+                    @endforeach
+                </div>
+            </div>
             <div class="connect-sorting-content mt-4">
                 <div class="card simple-title-task ui-sortable-handle">
                     <div class="card-body">
@@ -51,7 +51,7 @@
                             <div class="col-sm-12 col-md-12 col-lg-6">
                                 @if($efectivo >= $total && $total > 0)
                                 <button wire:click.prevent="saveSale" class="btn btn-dark btn-md btn-block">
-                                    GUARDAR F9</button>
+                                    GUARDAR F3</button>
                                 @endif
                             </div>
                         </div>

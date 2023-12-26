@@ -21,35 +21,35 @@
                         <thead class="text-white" style="background: #3b3f5c">
                         <tr>
                             <th class="table-th text-white">DESCRIPCION</th>
-                            <th class="table-th text-white">BARCODE</th>
-                            <th class="table-th text-white">CATEGORÍA</th>
-                            <th class="table-th text-white">PRECIO</th>
-                            <th class="table-th text-white">STOCK</th>
-                            <th class="table-th text-white">INV. MIN</th>
-                            <th class="table-th text-white">IMAGEN</th>
-                            <th class="table-th text-white">ACTIONS</th>
+                            <th class="table-th text-white text-center">BARCODE</th>
+                            <th class="table-th text-white text-center">CATEGORÍA</th>
+                            <th class="table-th text-white text-center">PRECIO</th>
+                            <th class="table-th text-white text-center">STOCK</th>
+                            <th class="table-th text-white text-center">INV. MIN</th>
+                            <th class="table-th text-white text-center">IMAGEN</th>
+                            <th class="table-th text-white text-center">ACTIONS</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($data as $product)
                         <tr>
                             <td>
-                                <h6>{{$product->name}}</h6>
+                                <h6 class="text-left">{{$product->name}}</h6>
                             </td>
                             <td>
-                                <h6>{{$product->barcode}}</h6>
+                                <h6 class="text-center">{{$product->barcode}}</h6>
                             </td>
                             <td>
-                                <h6>{{$product->category}}</h6>
+                                <h6 class="text-center">{{$product->category}}</h6>
                             </td>
                             <td>
-                                <h6>{{$product->price}}</h6>
+                                <h6 class="text-center">{{$product->price}}</h6>
                             </td>
                             <td>
-                                <h6>{{$product->stock}}</h6>
+                                <h6 class="text-center">{{$product->stock}}</h6>
                             </td>
                             <td>
-                                <h6>{{$product->alerts}}</h6>
+                                <h6 class="text-center">{{$product->alerts}}</h6>
                             </td>
                             <td class="text-center">
                                     <span>
@@ -91,18 +91,22 @@
         window.livewire.on('product-deleted', msg =>{
             //noty
         });
-        window.livewire.on('show-modal', msg =>{
+        window.livewire.on('modal-show', msg =>{
             $('#theModal').modal('show');
         });
-        window.livewire.on('hide-modal', msg =>{
+        window.livewire.on('modal-hide', msg =>{
             $('#theModal').modal('hide');
         });
         window.livewire.on('hidden.bs.modal', msg =>{
             $('.er').css('display', 'none')
         });
+        $('#theModal').on('hidden.bs.modal', function(e) {
+            $('.er').css('display', 'none')
+        });
     });
-    function Confirm(id, products)
-    {
+    
+    function Confirm(id, products){
+        
         if (products > 0)
         {
             swal('No se puede eliminar la categoria porque tiene productos relacionados.')
