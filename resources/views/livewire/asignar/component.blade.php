@@ -62,7 +62,7 @@
                                         </div>
                                     </td>
                                     <td class="text-center">
-                                        <h6>{{ \App\Models\User::permission($permiso->name)->count() }}</h6>
+                                        <h6>{{ \App\Models\User::permission($permiso->name)->count() }}</h6> <!--Solo cuenta los permisos en las version 4.0 y no en la 4.1 proximo a revisar-->
                                     </td>
                                 </tr>
                                 @endforeach
