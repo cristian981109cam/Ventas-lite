@@ -15,7 +15,7 @@ use Livewire\Component;
 
 class PosComponent extends Component
 {
-    public $total, $itemsQuantity=1, $cart=[],$denominations=[], $efectivo, $change;
+    public $total, $itemsQuantity, $denominations=[], $efectivo, $change; //$itemsQuantity=1, $cart=[],$denominations=[] no ponerlos porque no saldria nada en ventas
 
     public function mount()
     {
