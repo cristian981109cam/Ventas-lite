@@ -19,7 +19,7 @@
                         </span>
                     </span>
                             </div>
-                            <input type="text" wire:model.lazy="roleName" class="form-control" placeholder="ej: Admin">
+                            <input type="text" wire:model.lazy="roleName" class="form-control" placeholder="ej: Admin"> <!-- maxlength="255" -->
                         </div>
                         @error('roleName') <span class="text-danger er">{{ $message }}</span>@enderror
                     </div>

@@ -45,7 +45,7 @@ class RolesComponent extends Component
         $rules = ['roleName' => 'required|min:2|unique:roles,name'];
 
         $messages = [
-          'roleName.required' => 'Elnombre del rol es requerido',
+          'roleName.required' => 'El nombre del rol es requerido',
           'roleName.min'      => 'El nombre debe tener al menos 3 carateres',
           'roleName.unique'   => 'El rol ya existe'
         ];
@@ -74,7 +74,7 @@ class RolesComponent extends Component
         $rules = ['roleName' => "required|min:2|unique:roles,name, {$this->selected_id}"];
 
         $messages = [
-            'roleName.required' => 'Elnombre del rol es requerido',
+            'roleName.required' => 'El nombre del rol es requerido',
             'roleName.min'      => 'El nombre debe tener al menos 3 carateres',
             'roleName.unique'   => 'El rol ya existe'
         ];
@@ -104,6 +104,19 @@ class RolesComponent extends Component
         Role::find($id)->delete();
         $this->emit('role-deleted', 'Se eliminó el rol con éxito');
     }
+
+    public function AsignarRoles($rolesList)
+    {
+        if($this->userSelected > 0)
+        {
+            $user = User::find($this->userSelected);
+            if($user) {
+                $user->syncRoles ($rolesList);
+                $this->emit ('msg-ok', 'Roles asignados correctamente');
+                $this->resetInput();
+            }
+        }
+    }    
 
     public function resetUI()
     {
