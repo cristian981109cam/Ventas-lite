@@ -21,12 +21,12 @@
                     </div>
                     <button type="button"
                         wire:click.prevent="SyncAll()"
-                        class="btn btn--dark mbmobile inblock mr-5">
+                        class="btn btn-dark mbmobile inblock mr-5">
                         Sincronizar Todos
                     </button>
                     <button type="button"
                         onclick="Revocar()"
-                        class="btn btn--dark mbmobile mr-5">
+                        class="btn btn-dark mbmobile mr-5">
                         Revocar Todos
                     </button>
                 </div>

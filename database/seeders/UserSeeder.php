@@ -15,9 +15,9 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'name' => 'andres camilo',
+            'name' => 'cristian camilo',
             'phone' => '3015384586',
-            'email' => 'andresn@gmail.com',
+            'email' => 'cristian@gmail.com',
             'profile' => 'ADMIN',
             'status' => 'ACTIVE',
             'password' => bcrypt('3015384586'),
@@ -28,6 +28,14 @@ class UserSeeder extends Seeder
             'email' => 'maria@gmail.com',
             'profile' => 'EMPLOYEE',
             'status' => 'ACTIVE',
+            'password' => bcrypt('3015384586'),
+        ]);
+        User::create([
+            'name' => 'samuel obando',
+            'phone' => '3105646129',
+            'email' => 'samuel@gmail.com',
+            'profile' => 'EMPLOYEE',
+            'status' => 'LOCKED',
             'password' => bcrypt('3015384586'),
         ]);
     }
