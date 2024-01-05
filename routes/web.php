@@ -9,6 +9,7 @@ use App\Http\Livewire\RolesComponent;
 use App\Http\Livewire\PermisosComponent;
 use App\Http\Livewire\AsignarComponent;
 use App\Http\Livewire\UsersComponent;
+use App\Http\Livewire\CashoutComponent;
 
 use App\Http\Livewire\Select2;
 /*
@@ -37,6 +38,7 @@ Route::get('roles', RolesComponent::class);
 Route::get('permisos', PermisosComponent::class);
 Route::get('asignar', AsignarComponent::class);
 Route::get('users', UsersComponent::class);
+Route::get('cashout', CashoutComponent::class);
 
 //rutas utils
 Route::get('select2', Select2::class);

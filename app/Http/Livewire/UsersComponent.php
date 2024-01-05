@@ -13,11 +13,10 @@ class UsersComponent extends Component
     use WithPagination;
     use WithFileUploads;
 
-    public $name, $phone, $email, $status, $image, $password, $selected_id, $fileLoaded, $profile;
-    public $pageTitle, $componentName, $search;
-    private $pagination = 3;
+    public $name, $phone, $email, $status, $image, $password, $search, $selected_id, $fileLoaded, $profile, $pageTitle, $componentName;
+    private $pagination = 5;
 
-    public function paginationViewC()
+    public function paginationView()
     {
         return 'vendor.livewire.bootstrap';
     }
@@ -35,7 +34,7 @@ class UsersComponent extends Component
             $data = User::where('name', 'like', '%' . $this->search . '%')
         ->select('*')->orderBy('name', 'asc')->paginate($this->pagination);
         else
-            $data = User:: select('*')->orderBy('name', 'asc')->paginate($this->pagination);
+            $data = User::select('*')->orderBy('name', 'asc')->paginate($this->pagination);
 
         return view('livewire.users.component',[
             'data'=> $data,
@@ -55,14 +54,16 @@ class UsersComponent extends Component
         $this->search = '';
         $this->status = 'Elegir';
         $this->selected_id = 0;
+        $this->resetValidation();
+        $this->resetPage();
     }
 
-    public function Edit(User $user)
+    public function edit(User $user)
     {
         $this->selected_id = $user->id;
         $this->name = $user->name;
         $this->phone = $user->phone;
-        $this->profile = $user->profile;
+        $this->profile = $this->profile;
         $this->status = $user->status;
         $this->email = $user->email;
         $this->password = '';
@@ -70,10 +71,10 @@ class UsersComponent extends Component
         $this->emit('show-modal', 'open!');
     }
 
-    //protected $listeners = [
-        //'deleteRow' => 'Destroy',
-      //  'resetUI' => 'resetUI',
-    //];
+    protected $listeners = [
+        'deleteRow' => 'destroy',
+        'resetUI' => 'resetUI',
+    ];
     
     public function Store()
     {
@@ -122,7 +123,8 @@ class UsersComponent extends Component
         
     }
 
-    public function Update(){
+    public function Update()
+    {
         $rules = [
             'email' => "required|email|unique:users,email,{$this->selected_id}",
             'name' => 'required|min:3',
@@ -130,7 +132,7 @@ class UsersComponent extends Component
             'profile' => 'required|not_in:Elegir',
             'password' => 'required|min:3',
         ];
-    
+        
         $messages = [
             'name.required' => 'Ingresa el nombre',
             'name.min' => 'El nombre del usuario debe tener al menos 3 caracteres',
@@ -173,22 +175,19 @@ class UsersComponent extends Component
         }
         
         $this->resetUI();
-        $this->emit('user-update', 'Usuario Actualizado');
+        $this->emit('user-updated', 'Usuario Actualizado');
     }
-    
-    protected $listeners = ['deleteRow' => 'Destroy'];
-    public function Destroy(User $user)
+
+    public function destroy(User $user)
     {
-        
-        $this->resetUI();
-        $this->emit('user-update', 'Usuario eliminado exitosamente');
-        return false;
         if ($user) {
             $sales = Sale::where('user_id', $user->id)->count();
             if ($sales > 0) {
                 $this->emit('user-withsales', 'No es posible eliminar el usuario porque tiene ventas registradas');
             } else {
-                
+                $user->delete();
+                $this->resetUI();
+                $this->emit('user-deleted', 'Usuario eliminado exitosamente');
             }
         }
     }
