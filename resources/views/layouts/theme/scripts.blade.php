@@ -38,4 +38,5 @@
     }
 </script>
 
+<script src="{{ asset('plugins/flatpickr/flatpickr.js') }}"></script> <!--Calendario dark-->
 @livewireScripts

@@ -10,6 +10,9 @@ use App\Http\Livewire\PermisosComponent;
 use App\Http\Livewire\AsignarComponent;
 use App\Http\Livewire\UsersComponent;
 use App\Http\Livewire\CashoutComponent;
+use App\Http\Livewire\ReportsComponent;
+
+use App\Http\Controllers\ExportController;
 
 use App\Http\Livewire\Select2;
 /*
@@ -39,6 +42,11 @@ Route::get('permisos', PermisosComponent::class);
 Route::get('asignar', AsignarComponent::class);
 Route::get('users', UsersComponent::class);
 Route::get('cashout', CashoutComponent::class);
+Route::get('reports', ReportsComponent::class);
+
+//report PDF
+Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
+Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
 
 //rutas utils
 Route::get('select2', Select2::class);
