@@ -60,7 +60,7 @@
                 @foreach ($data as $item)
                     <tr>
                         <td align="center">{{ $item->id }}</td>
-                        <td align="center">{{ number_format($item->total, 2) }}</td>
+                        <td align="center">${{ number_format($item->total, 2) }}</td>
                         <td align="center">{{ $item->items }}</td>
                         <td align="center">{{ $item->status }}</td>
                         <td align="center">{{ $item->user }}</td>
