@@ -18,12 +18,12 @@ class ExportController extends Controller
 
         if($reportType == 0) //ventas al dia
         {
-            $from = Carbon::parse(Carbon::now())->format('Y-m-d') . '00.00.00';
-            $to = Carbon::parse(Carbon::now())->format('Y-m-d') . '23.59.59';
+            $from = Carbon::parse(Carbon::now())->format('Y-m-d') . ' 00.00.00';
+            $to = Carbon::parse(Carbon::now())->format('Y-m-d') . ' 23.59.59';
 
         }else{
-            $from = Carbon::parse($dateFrom)->format('Y-m-d') . '00.00.00';
-            $to = Carbon::parse($dateTo)->format('Y-m-d') . '23.59.59';
+            $from = Carbon::parse($dateFrom)->format('Y-m-d') . ' 00.00.00';
+            $to = Carbon::parse($dateTo)->format('Y-m-d') . ' 23.59.59';
         }
 
         if($userId == 0)
@@ -41,9 +41,7 @@ class ExportController extends Controller
         }
 
         $user = $userId == 0 ? 'Todos' : User::find($userId)->name;
-        $dateForm = null;
-        $pdf = PDF::loadView('pdf.reporte', compact('data', 'reportType', 'user', 'dateForm', 'dateTo'));
-        //$pdf = PDF::loadView('pdf.reporte', compact('data', 'reportType', 'user', 'from', 'to'));
+        $pdf = PDF::loadView('pdf.reporte', compact('data', 'reportType', 'user', 'dateFrom', 'dateTo'));
 
         return $pdf->stream('saleReport.pdf'); //Visualizar
         return $pdf->download('saleReport.pdf'); //Descargar
