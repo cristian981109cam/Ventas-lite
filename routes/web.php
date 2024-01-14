@@ -48,5 +48,9 @@ Route::get('reports', ReportsComponent::class);
 Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
 Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
 
+//report EXCEL
+Route::get('report/excel/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);
+Route::get('report/excel/{user}/{type}', [ExportController::class, 'reporteExcel']);
+
 //rutas utils
 Route::get('select2', Select2::class);
