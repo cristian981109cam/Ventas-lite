@@ -6,14 +6,18 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tab tab-pills">
+                    @can('Coin_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark btn btn-sm" data-toggle="modal" data-target="#theModal">
                             Agregar
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </div>
+            @can('Coin_Search')
             @include('common.searchbox')
+            @endcan
 
             <div class="widget-content">
                 <div class="table-responsive">
@@ -38,17 +42,21 @@
                                     </span>
                                 </td>
                                 <td class="text-center">
+                                    @can('Coin_Update')
                                     <a href="javascript:void(0)"
                                        wire:click="Edit({{$coin->id}})"
                                        class="btn btn-dark mtmobile" title="Edit">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endcan
 
+                                    @can('Coin_Destroy')
                                     <a href="javascript:void(0)"
                                        onclick="Confirm('{{$coin->id}}')"
                                        class="btn btn-dark" title="Delete">
                                         <i class="fas fa-trash"></i>
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach

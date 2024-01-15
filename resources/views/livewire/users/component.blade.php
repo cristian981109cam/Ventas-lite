@@ -6,14 +6,18 @@
                     <b>{{ $componentName }} | {{ $pageTitle }}</b>
                 </h4>
                 <ul class="tab tab-pills">
+                    @can('Usuarios_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark btn btn-sm" data-toggle="modal" data-target="#theModal">
                             Agregar
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </div>
+            @can('Usuarios_Search')
             @include('common.searchbox')
+            @endcan
 
             <div class="widget-content">
                 <div class="table-responsive">
@@ -57,14 +61,18 @@
                                         @endif
                                     </td>
                                     <td class="text-center">
+                                        @can('Usuarios_Update')
                                         <a href="javascript:void(0)" wire:click="edit({{ $r->id }})"
                                             class="btn btn-dark mtmobile" title="Edit">
                                             <i class="fas fa-edit"></i>
                                         </a>
+                                        @endcan
+                                        @can('Usuarios_Destroy')
                                         <a href="javascript:void(0)" onclick="Confirm('{{ $r->id }}')"
                                             class="btn btn-dark" title="Delete">
                                             <i class="fas fa-trash"></i>
                                         </a>
+                                        @endcan
                                     </td>
                                 </tr>
                             @endforeach

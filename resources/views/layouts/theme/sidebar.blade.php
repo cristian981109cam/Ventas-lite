@@ -2,6 +2,7 @@
     <nav id="compactSidebar">
 
         <ul class="menu-categories">
+            {{--@can('Category_Index')--}}
             <li class="active">
                 <a href="{{url('categories')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -17,7 +18,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
 
+            {{--@can('Product_Index')--}}
             <li class="">
                 <a href="{{ url('products') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -31,7 +34,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
 
+            {{--@can('Pos_Index')--}}
             <li class="">
                 <a href="{{ url('pos') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -46,7 +51,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
 
+            {{--@can('Role_Index')--}}
             <li class="">
                 <a href="{{ url('roles') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -59,7 +66,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
 
+            {{--@can('Permiso_Index')--}}
             <li class="">
                 <a href="{{ url('permisos') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -73,6 +82,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+
+            {{--@can('Asignar_Index')--}}
             <li class="">
                 <a href="{{ url('asignar') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -86,6 +98,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+
+            {{--@can('Usuarios_Index')--}}
             <li class="">
                 <a href="{{ url('users') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -101,6 +116,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+
+            {{--@can('Coin_Index')--}}
             <li class="">
                 <a href="{{ url('coins') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -114,6 +132,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+
+            {{--@can('Cashout_Index')--}}
             <li class="">
                 <a href="{{url('cashout')}}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -127,6 +148,9 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+
+            {{--@can('Report_Index')--}}
             <li class="">
                 <a href="{{url('reports')}}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -140,6 +164,8 @@
                     </div>
                 </a>
             </li>
+            {{--@endcan--}}
+            
         </ul>
 
     </nav>

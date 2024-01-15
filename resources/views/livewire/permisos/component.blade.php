@@ -6,14 +6,18 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tab tab-pills">
+                    @can('Permiso_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu btn btn-sm bg-dark" data-toggle="modal" data-target="#theModal">
                             Agregar
                         </a>
                     </li>
+                    @endcan
                 </ul>
             </div>
+            @can('Permiso_Search')
             @include('common.searchbox')
+            @endcan
 
             <div class="widget-content">
                 <div class="table-responsive">
@@ -35,16 +39,20 @@
                                     <h6 class="text-center">{{ $permiso->name }}</h6>
                                 </td>
                                 <td class="text-center">
+                                    @can('Permiso_Update')
                                     <a href="javascript:void(0)"
                                        wire:click="Edit({{$permiso->id}})"
                                        class="btn btn-dark mtmobile" title="Editar Registro">
                                         <i class="fas fa-edit"></i>
                                     </a>
+                                    @endcan
+                                    @can('Permiso_Destroy')
                                     <a href="javascript:void(0)"
                                        onclick="Confirm({{$permiso->id}})"
                                        class="btn btn-dark" title="Eliminar Registro">
                                         <i class="fas fa-trash"></i>
                                     </a>
+                                    @endcan
                                 </td>
                             </tr>
                         @endforeach
