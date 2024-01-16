@@ -30,8 +30,10 @@
                         <div class="media mx-auto">
                             <img src="assets/img/persona.jpg" class="img-fluid mr-2" alt="avatar">
                             <div class="media-body">
-                                <h5>Cristian Castiblanco</h5>
-                                <p>Desarrollador</p>
+                                @auth
+                                    <h5>{{ auth()->user()->name }}</h5>
+                                    <p>{{ auth()->user()->profile }}</p>
+                                @endauth
                             </div>
                         </div>
                     </div>
