@@ -6,7 +6,7 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tab tab-pills">
-                    @can('Coin_Create')
+                    @can('Admin.Coin_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark btn btn-sm" data-toggle="modal" data-target="#theModal">
                             Agregar
@@ -15,7 +15,7 @@
                     @endcan
                 </ul>
             </div>
-            @can('Coin_Search')
+            @can('Admin.Coin_Search')
             @include('common.searchbox')
             @endcan
 
@@ -42,7 +42,7 @@
                                     </span>
                                 </td>
                                 <td class="text-center">
-                                    @can('Coin_Update')
+                                    @can('Admin.Coin_Update')
                                     <a href="javascript:void(0)"
                                        wire:click="Edit({{$coin->id}})"
                                        class="btn btn-dark mtmobile" title="Edit">
@@ -50,7 +50,7 @@
                                     </a>
                                     @endcan
 
-                                    @can('Coin_Destroy')
+                                    @can('Admin.Coin_Destroy')
                                     <a href="javascript:void(0)"
                                        onclick="Confirm('{{$coin->id}}')"
                                        class="btn btn-dark" title="Delete">

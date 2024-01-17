@@ -6,7 +6,7 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tab tab-pills">
-                    @can('Permiso_Create')
+                    @can('Admin.Permiso_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu btn btn-sm bg-dark" data-toggle="modal" data-target="#theModal">
                             Agregar
@@ -15,7 +15,7 @@
                     @endcan
                 </ul>
             </div>
-            @can('Permiso_Search')
+            @can('Admin.Permiso_Search')
             @include('common.searchbox')
             @endcan
 
@@ -39,14 +39,14 @@
                                     <h6 class="text-center">{{ $permiso->name }}</h6>
                                 </td>
                                 <td class="text-center">
-                                    @can('Permiso_Update')
+                                    @can('Admin.Permiso_Update')
                                     <a href="javascript:void(0)"
                                        wire:click="Edit({{$permiso->id}})"
                                        class="btn btn-dark mtmobile" title="Editar Registro">
                                         <i class="fas fa-edit"></i>
                                     </a>
                                     @endcan
-                                    @can('Permiso_Destroy')
+                                    @can('Admin.Permiso_Destroy')
                                     <a href="javascript:void(0)"
                                        onclick="Confirm({{$permiso->id}})"
                                        class="btn btn-dark" title="Eliminar Registro">

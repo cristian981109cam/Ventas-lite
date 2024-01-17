@@ -1,8 +1,8 @@
 <div class="sidebar-wrapper sidebar-theme">
-    <nav id="compactSidebar">
+    <nav id="compactSidebar" class="show">
 
         <ul class="menu-categories">
-            {{--@can('Category_Index')--}}
+            @can('Admin.Category_Index')
             <li class="active">
                 <a href="{{url('categories')}}" class="menu-toggle" data-active="true">
                     <div class="base-menu">
@@ -18,9 +18,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Product_Index')--}}
+            @can('Admin.Product_Index')
             <li class="">
                 <a href="{{ url('products') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -34,9 +34,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Pos_Index')--}}
+            @can('Admin.Pos_Index')
             <li class="">
                 <a href="{{ url('pos') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -51,9 +51,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Role_Index')--}}
+            @can('Admin.Role_Index')
             <li class="">
                 <a href="{{ url('roles') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -66,9 +66,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Permiso_Index')--}}
+            @can('Admin.Permiso_Index')
             <li class="">
                 <a href="{{ url('permisos') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -82,9 +82,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Asignar_Index')--}}
+            @can('Admin.Asignar_Index')
             <li class="">
                 <a href="{{ url('asignar') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -98,9 +98,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Usuarios_Index')--}}
+            @can('Admin.Usuarios_Index')
             <li class="">
                 <a href="{{ url('users') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -116,9 +116,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Coin_Index')--}}
+            @can('Admin.Coin_Index')
             <li class="">
                 <a href="{{ url('coins') }}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -132,9 +132,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Cashout_Index')--}}
+            @can('Admin.Cashout_Index')
             <li class="">
                 <a href="{{url('cashout')}}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -148,9 +148,9 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
 
-            {{--@can('Report_Index')--}}
+            @can('Admin.Report_Index')
             <li class="">
                 <a href="{{url('reports')}}" class="menu-toggle" data-active="false">
                     <div class="base-menu">
@@ -164,9 +164,11 @@
                     </div>
                 </a>
             </li>
-            {{--@endcan--}}
+            @endcan
             
         </ul>
 
     </nav>
+    <div id="compact_submenuSidebar" class="submenu-sidebar">
+    </div>
 </div>

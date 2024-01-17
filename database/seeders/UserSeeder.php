@@ -4,6 +4,8 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\User;
+use Spatie\Permission\Models\Role;
+
 
 class UserSeeder extends Seeder
 {
@@ -21,7 +23,7 @@ class UserSeeder extends Seeder
             'profile' => 'ADMIN',
             'status' => 'ACTIVE',
             'password' => bcrypt('3015384586'),
-        ]);
+        ])->assignRole('Admin');
         User::create([
             'name' => 'samuel obando',
             'phone' => '3105646129',
@@ -29,7 +31,7 @@ class UserSeeder extends Seeder
             'profile' => 'ADMIN',
             'status' => 'ACTIVE',
             'password' => bcrypt('3105646129'),
-        ]);
+        ])->assignRole('Admin');
         User::create([
             'name' => 'maria alejandra',
             'phone' => '3105646189',
@@ -37,7 +39,7 @@ class UserSeeder extends Seeder
             'profile' => 'EMPLOYEE',
             'status' => 'ACTIVE',
             'password' => bcrypt('3105646189'),
-        ]);
+        ])->assignRole('Cliente');
         User::create([
             'name' => 'sara araujo',
             'phone' => '3105646100',
@@ -45,6 +47,6 @@ class UserSeeder extends Seeder
             'profile' => 'EMPLOYEE',
             'status' => 'LOCKED',
             'password' => bcrypt('3105646100'),
-        ]);
+        ])->assignRole('Cliente');
     }
 }

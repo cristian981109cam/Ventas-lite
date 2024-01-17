@@ -6,7 +6,7 @@
                     <b>{{$componentName}} | {{$pageTitle}}</b>
                 </h4>
                 <ul class="tab tab-pills">
-                    @can('Product_Create')
+                    @can('Admin.Product_Create')
                     <li>
                         <a href="javascript:void(0)" class="tabmenu bg-dark btn btn-sm" data-toggle="modal" data-target="#theModal">
                             Agregar
@@ -15,7 +15,7 @@
                     @endcan
                 </ul>
             </div>
-            @can('Product_Create')
+            @can('Admin.Product_Create')
             @include('common.searchbox')
             @endcan
 
@@ -61,7 +61,7 @@
                                     </span>
                             </td>
                             <td class="text-center">
-                                @can('Product_Update')
+                                @can('Admin.Product_Update')
                                 <a href="javascript:void(0)"
                                    wire:click.prevent="Edit({{$product->id}})"
                                    class="btn btn-dark mtmobile" title="Edit">
@@ -69,7 +69,7 @@
                                 </a>
                                 @endcan
 
-                                @can('Product_Destroy')
+                                @can('Admin.Product_Destroy')
                                 <a href="javascript:void(0)"
                                    onclick="Confirm('{{$product->id}}')"
                                    class="btn btn-dark" title="Delete">
