@@ -33,24 +33,35 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/dashboard', [App\Http\Controllers\dashboard\DashboardController::class, 'index'])->name('dash');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('categories', CategoriesController::class);
-Route::get('products', ProductsComponent::class);
-Route::get('coins', CoinsComponent::class);
-Route::get('pos', PosComponent::class);
-Route::get('roles', RolesComponent::class);
-Route::get('permisos', PermisosComponent::class);
-Route::get('asignar', AsignarComponent::class);
-Route::get('users', UsersComponent::class);
-Route::get('cashout', CashoutComponent::class);
-Route::get('reports', ReportsComponent::class);
 
-//report PDF
-Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
-Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
+Route::middleware(['auth'])->group(function () {
 
-//report EXCEL
-Route::get('report/excel/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);
-Route::get('report/excel/{user}/{type}', [ExportController::class, 'reporteExcel']);
+    Route::get('categories', CategoriesController::class)/*->middleware('role:Admin') ejemplo para bloquear entrada y seguir viendo*/;
+    Route::get('products', ProductsComponent::class);
+    Route::get('coins', CoinsComponent::class);
+    Route::get('pos', PosComponent::class);
 
-//rutas utils
-Route::get('select2', Select2::class);
+    Route::group(['middleware' => ['role:Admin']], function () {
+
+        Route::get('roles', RolesComponent::class);
+        Route::get('permisos', PermisosComponent::class);
+        Route::get('asignar', AsignarComponent::class);
+        
+    });
+
+    Route::get('users', UsersComponent::class);
+    Route::get('cashout', CashoutComponent::class);
+    Route::get('reports', ReportsComponent::class);
+
+    //report PDF
+    Route::get('report/pdf/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reportPDF']);
+    Route::get('report/pdf/{user}/{type}', [ExportController::class, 'reportPDF']);
+
+    //report EXCEL
+    Route::get('report/excel/{user}/{type}/{f1}/{f2}', [ExportController::class, 'reporteExcel']);
+    Route::get('report/excel/{user}/{type}', [ExportController::class, 'reporteExcel']);
+
+    //rutas utils
+    Route::get('select2', Select2::class);
+
+});
