@@ -13,6 +13,7 @@ use App\Http\Livewire\CashoutComponent;
 use App\Http\Livewire\ReportsComponent;
 
 use App\Http\Controllers\ExportController;
+use App\Http\Controllers;
 
 use App\Http\Livewire\Select2;
 /*
@@ -66,5 +67,7 @@ Route::middleware(['auth'])->group(function () {
 
     //rutas utils
     Route::get('select2', Select2::class);
+    Route::get('/print/{request}', [App\Http\Controllers\PrintController::class, 'print'])->name('print2.pdf');
+    Route::get('/print2/{request}', [App\Http\Controllers\PrintController::class, 'print_2'])->name('print.pdf');
 
 });
