@@ -45,7 +45,6 @@ class ExportController extends Controller
         $pdf = PDF::loadView('pdf.reporte', compact('data', 'reportType', 'user', 'dateFrom', 'dateTo'));
 
         return $pdf->stream('saleReport.pdf'); //Visualizar
-        return $pdf->download('saleReport.pdf'); //Descargar
     }
 
     public function reporteExcel($userId, $reportType, $dateFrom = null, $dateTo = null)

@@ -34,34 +34,6 @@ class ReportsComponent extends Component
         ->section('content');
     }
 
-    /*public function SalesByDate()
-    {
-        if($this->reportType == 0) //ventas al dia
-        {
-            $from = Carbon::parse(Carbon::now())->format('Y-m-d') . '00.00.00';
-            $to = Carbon::parse(Carbon::now())->format('Y-m-d') . '23.59.59';
-        }else{
-            $from = Carbon::parse($this->dateFrom)->format('Y-m-d') . '00.00.00';
-            $to = Carbon::parse($this->dateTo)->format('Y-m-d') . '23.59.59';
-        }
-        if($this->reportType == 1 && ($this->dateFrom == '' || $this->dateTo == '')){
-            return;
-        }
-        if($this->userId === 0)
-        {
-            $this->data = Sale::join('users as u', 'u.id', 'sales.user_id')
-            ->select('sales.*', 'u.name as user')
-            ->whereBetween('sales.created_at', [$from, $to])
-            ->get();
-        }else {
-            $this->data = Sale::join('users as u', 'u.id', 'sales.user_id')
-            ->select('sales.*', 'u.name as user')
-            ->whereBetween('sales.created_at', [$from, $to])
-            ->where('user_id', $this->userId)
-            ->get();
-        }
-    }*/
-
     public function SalesByDate()
     {
         if ($this->reportType == 0) // Ventas al día
